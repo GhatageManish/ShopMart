@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 function ProductCard({ product }) {
+  const {addToCart}=useCart();
   return (
     <div className="bg-gray-900 rounded-2xl shadow-xl border border-gray-800 
                     overflow-hidden flex flex-col h-full 
@@ -46,7 +48,7 @@ function ProductCard({ product }) {
         {/* Action Button */}
         <button
           className="mt-4 bg-orange-500 text-black font-semibold py-2 rounded-xl
-                     hover:bg-orange-400 transition"
+                     hover:bg-orange-400 transition cursor-pointer" onClick={()=>addToCart(product)}
         >
           Add to Cart
         </button>
